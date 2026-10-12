@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand palette (Figma: Main/*, Gray/*) */
+  --color-orange: #ff4e00;
+  --color-sky: #b3e2f2;
+  --color-surface: #f4f4f4; /* Vaults container */
+  --color-card: #fafafa; /* Main/Bg */
+
+  --color-gray-5: #fafafa;
+  --color-gray-10: #f4f4f4;
+  --color-gray-20: #e1e1e1;
+  --color-gray-30: #c5c5c5;
+  --color-gray-40: #a9a9a9;
+  --color-gray-50: #8e8e8e;
+  --color-gray-60: #747474;
+  --color-gray-70: #5b5b5b;
+  --color-gray-80: #444444;
+  --color-gray-90: #2d2d2d;
+  --color-gray-100: #191919;
+
+  --font-sans: var(--font-die-grotesk), system-ui, sans-serif;
+  --font-pretendard: var(--font-pretendard), "Pretendard", system-ui, sans-serif;
+
+  /* Design is authored at 1920px. These clamp()s hit the exact Figma size at >=1920
+     and scale down proportionally on smaller desktops/tablets. */
+  --text-display: clamp(2.25rem, 3.333vw, 4rem); /* 36px → 64px @1920 */
+  --text-lead: clamp(1.25rem, 1.667vw, 2rem); /* 32px */
+  --text-stat: clamp(4rem, 6.25vw, 7.5rem); /* 120px */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-orange);
+    color: #fff;
+  }
+}
+
+@utility text-display {
+  font-size: var(--text-display);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@utility text-lead {
+  font-size: var(--text-lead);
+  letter-spacing: 0.02em;
+}
+
+@utility text-stat {
+  font-size: var(--text-stat);
+  line-height: 1;
+}
+
+/* Black → orange text fill used by the "Managed by Presto" numbers */
+@utility text-ember {
+  background-image: linear-gradient(180deg, #000 50%, #ff4e00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
