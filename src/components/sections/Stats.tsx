@@ -27,7 +27,7 @@ export default function Stats() {
                   {stat.description}
                 </p>
               </div>
-              <p className="mt-10 text-ember text-stat font-medium">{stat.value}</p>
+              <p className="text-ember mt-10 text-stat font-medium">{stat.value}</p>
             </article>
           </Reveal>
         ))}

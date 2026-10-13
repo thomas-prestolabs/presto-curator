@@ -7,8 +7,10 @@ import News from "@/components/sections/News";
 import Partners from "@/components/sections/Partners";
 import ContactBand from "@/components/sections/ContactBand";
 
-// Vault numbers are fetched on the server and cached for VAULT_REVALIDATE_SECONDS.
-export const revalidate = 300;
+// ISR: the page (and the vault numbers in it) is regenerated in the background at
+// most once a minute, on demand. Visitors always get the cached HTML instantly and
+// the protocol APIs are never called per page view.
+export const revalidate = 60;
 
 export default function HomePage() {
   return (

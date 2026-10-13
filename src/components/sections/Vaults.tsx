@@ -20,22 +20,20 @@ export default async function Vaults() {
         subtitle={vaultsSection.subtitle}
       />
 
-      <Reveal
-        delay={0.1}
-        className="mx-auto mt-8 max-w-[1648px] rounded-xl bg-surface p-3 md:p-8 2xl:p-[60px]"
-      >
-        <div className="flex flex-col gap-3 md:gap-6 lg:flex-row lg:gap-6 2xl:gap-10">
-          {vaults.map((vault) => (
-            <VaultCard key={vault.id} vault={vault} />
-          ))}
+      <Reveal delay={0.1} className="mx-auto mt-8 max-w-[1648px]">
+        <div className="rounded-xl bg-surface p-3 md:p-8 2xl:p-[60px]">
+          <div className="flex flex-col gap-3 md:gap-6 lg:flex-row lg:gap-6 2xl:gap-10">
+            {vaults.map((vault) => (
+              <VaultCard key={vault.id} vault={vault} />
+            ))}
+          </div>
         </div>
+        <p className="mt-4 px-2 text-xs tracking-[0.02em] text-gray-50">
+          {anyLive
+            ? "Net APY and TVL are read from the Morpho and Symbiotic APIs and refreshed about once a minute. Figures are informational and not an offer or recommendation."
+            : "Live vault data is temporarily unavailable."}
+        </p>
       </Reveal>
-
-      <p className="mx-auto mt-4 max-w-[1648px] px-2 text-xs tracking-[0.02em] text-gray-50">
-        {anyLive
-          ? "Net APY and TVL are read from the Morpho and Symbiotic APIs and refreshed periodically. Figures are informational and not an offer or recommendation."
-          : "Live vault data is temporarily unavailable."}
-      </p>
     </section>
   );
 }

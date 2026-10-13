@@ -65,9 +65,17 @@
   line-height: 1;
 }
 
-/* Black → orange text fill used by the "Managed by Presto" numbers */
+/* Black → orange text fill used by the "Managed by Presto" numbers.
+   background-clip: text only paints inside the element's box, and with line-height 1
+   the descenders of "y" and "$" hang below it — so the box is padded by the descender
+   depth (bottom) and the overshoot (top). The gradient stops are shifted so the colour
+   still runs black over the top half of the glyphs to orange at their baseline, as in
+   Figma (#000 50% → #ff4e00 100% over a 1em box). */
 @utility text-ember {
-  background-image: linear-gradient(180deg, #000 50%, #ff4e00 100%);
+  padding-top: 0.06em;
+  padding-bottom: 0.24em;
+  margin-top: -0.06em;
+  background-image: linear-gradient(180deg, #000 43%, #ff4e00 82%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

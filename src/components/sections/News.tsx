@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { newsSection, type NewsItem } from "@/data/site";
+import { newsSection } from "@/data/site";
+import { getLatestNews, type NewsItem } from "@/lib/news";
 import { formatDate } from "@/lib/format";
 import SectionHeading from "../ui/SectionHeading";
 import Reveal from "../ui/Reveal";
@@ -23,6 +24,7 @@ function NewsCard({ item }: { item: NewsItem }) {
           width={425}
           height={239}
           sizes="(min-width: 1024px) 425px, 100vw"
+          unoptimized={item.image.startsWith("http")}
           className="aspect-[425/239] w-full object-cover"
         />
       </div>
@@ -45,7 +47,9 @@ function NewsCard({ item }: { item: NewsItem }) {
   );
 }
 
-export default function News() {
+export default async function News() {
+  const items = await getLatestNews(newsSection.limit);
+
   return (
     <section
       id="news"
@@ -55,8 +59,8 @@ export default function News() {
       <SectionHeading id="news-title" title={newsSection.title} />
 
       <div className="mx-auto mt-10 flex max-w-[1240px] flex-col gap-6 lg:mt-20 lg:gap-8">
-        {newsSection.items.map((item, i) => (
-          <Reveal key={`${item.date}-${i}`} delay={i * 0.06}>
+        {items.map((item, i) => (
+          <Reveal key={item.slug} delay={i * 0.06}>
             <NewsCard item={item} />
           </Reveal>
         ))}

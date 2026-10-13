@@ -54,52 +54,13 @@ export const statsSection = {
   ],
 };
 
-export type NewsItem = {
-  title: string;
-  excerpt: string;
-  /** ISO date (YYYY-MM-DD) */
-  date: string;
-  category: string;
-  /** Path under /public or an absolute URL. 425x239 in the design. */
-  image: string;
-  imageAlt: string;
-  href?: string;
-};
-
+/**
+ * News items are Markdown files in content/news/ (see content/news/README.md).
+ * `limit` is how many of the newest items the section shows.
+ */
 export const newsSection = {
   title: "News",
-  items: [
-    {
-      title: "Presto is now live on Morpho as a vault curator.",
-      excerpt:
-        "Presto Digital has launched two curated USDC vaults on Morpho — Prime and Forte — bringing a decade of quantitative risk management to onchain lending. Each vault discloses its collateral exposure, TVL, and net APY in real time.",
-      date: "2026-07-30",
-      category: "Curator Announcement",
-      image: "/images/news/morpho-curator-announcement.svg",
-      imageAlt: "Curator Announcement — Presto | Morpho",
-      href: "https://app.morpho.org/ethereum/curator/presto",
-    },
-    {
-      title: "Presto USDC Forte: diversified RWA collateral, higher yield.",
-      excerpt:
-        "Forte targets higher USDC yield through over-collateralized private credit RWA markets, with allocations capped per collateral and a 15% performance fee.",
-      date: "2026-07-12",
-      category: "Vault Update",
-      image: "/images/news/morpho-curator-announcement.svg",
-      imageAlt: "Curator Announcement — Presto | Morpho",
-      href: "https://app.morpho.org/ethereum/vault/0x68A65f315BCd3C3456d1368Ff88bC661856548E1/presto-usdc-forte",
-    },
-    {
-      title: "Presto USDC Prime: capital preservation with instant redeemability.",
-      excerpt:
-        "Prime keeps USDC in blue-chip collateral markets with no performance or management fee, designed for depositors who prioritise liquidity over yield.",
-      date: "2026-07-08",
-      category: "Vault Update",
-      image: "/images/news/morpho-curator-announcement.svg",
-      imageAlt: "Curator Announcement — Presto | Morpho",
-      href: "https://app.morpho.org/ethereum/vault/0x133614490896bc02C774bc3399E4Db1B6D05a2CA/presto-usdc-prime",
-    },
-  ] satisfies NewsItem[],
+  limit: 3,
 };
 
 export const partnersSection = {

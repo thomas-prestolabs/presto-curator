@@ -14,13 +14,15 @@ export type VaultConfig = {
   protocol: VaultProtocol;
   /** Label shown above the vault name (e.g. "Morpho") */
   protocolLabel: string;
-  /** Short display name shown in the card (uppercase in the design) */
+  /** Display name shown in the card (rendered uppercase) */
   name: string;
   address: `0x${string}`;
   chainId: number;
   chainLabel: string;
   /** Link to the vault on the protocol app */
   href: string;
+  /** Show the row of collateral icons under the chips */
+  showExposure: boolean;
   fallback: {
     asset: string;
     apy: number | null; // 0.0442 === 4.42 %
@@ -34,11 +36,12 @@ export const vaults: VaultConfig[] = [
     id: "morpho-forte",
     protocol: "morpho",
     protocolLabel: "Morpho",
-    name: "Forte",
+    name: "Presto USDC Forte",
     address: "0x68A65f315BCd3C3456d1368Ff88bC661856548E1",
     chainId: 1,
     chainLabel: "Ethereum",
     href: "https://app.morpho.org/ethereum/vault/0x68A65f315BCd3C3456d1368Ff88bC661856548E1/presto-usdc-forte",
+    showExposure: true,
     fallback: {
       asset: "USDC",
       apy: null,
@@ -50,11 +53,12 @@ export const vaults: VaultConfig[] = [
     id: "morpho-prime",
     protocol: "morpho",
     protocolLabel: "Morpho",
-    name: "Prime",
+    name: "Presto USDC Prime",
     address: "0x133614490896bc02C774bc3399E4Db1B6D05a2CA",
     chainId: 1,
     chainLabel: "Ethereum",
     href: "https://app.morpho.org/ethereum/vault/0x133614490896bc02C774bc3399E4Db1B6D05a2CA/presto-usdc-prime",
+    showExposure: true,
     fallback: {
       asset: "USDC",
       apy: null,
@@ -71,11 +75,12 @@ export const vaults: VaultConfig[] = [
     chainId: 1,
     chainLabel: "Ethereum",
     href: "https://app.symbiotic.fi/vault/0x4f7EA018239FfBdCf52133B9E98a498B2B4b9F32",
+    showExposure: false,
     fallback: {
       asset: "USDC",
       apy: null,
       tvlUsd: null,
-      exposure: [{ symbol: "Presto USDC Forte" }, { symbol: "Presto USDC Prime" }],
+      exposure: [],
     },
   },
 ];

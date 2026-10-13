@@ -2,7 +2,7 @@
   "name": "presto-curator",
   "version": "0.1.0",
   "private": true,
-  "description": "Presto Digital — Onchain Curator landing site (standalone, no CMS)",
+  "description": "Presto Digital — Onchain Curator landing site",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,6 +13,8 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@upstash/redis": "^1.39.0",
+    "gray-matter": "^4.0.3",
     "motion": "^12.43.0",
     "next": "16.3.5",
     "react": "19.3.0",

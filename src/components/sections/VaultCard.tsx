@@ -63,8 +63,9 @@ export default function VaultCard({ vault }: { vault: VaultData }) {
         <Chip tone="asset">{vault.asset}</Chip>
       </div>
 
-      <div className="mt-4">
-        <ExposureIcons items={vault.exposure} />
+      {/* Keep the row height when a vault shows no icons so APY/TVL line up across cards. */}
+      <div className="mt-4 h-10">
+        {vault.exposure.length > 0 && <ExposureIcons items={vault.exposure} />}
       </div>
 
       <dl className="mt-8 flex gap-4">
