@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-black text-white">
-      <div className="mx-auto flex max-w-[1240px] flex-col gap-12 px-6 pt-12 pb-16 md:px-10 lg:flex-row lg:justify-between lg:pt-16 lg:pb-[120px] xl:px-0">
+      <div className="mx-auto flex max-w-[1240px] flex-col gap-12 px-6 pt-12 pb-16 md:px-10 lg:flex-row lg:items-start lg:justify-between lg:pt-16 lg:pb-[120px] xl:px-0">
         <a
           href="#top"
           aria-label="Presto Digital — back to top"
@@ -15,22 +15,20 @@ export default function Footer() {
           <Logo color="white" width={168} height={32} />
         </a>
 
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:gap-10">
-          {footer.columns.map((column) => (
-            <div key={column.title} className="flex w-full flex-col gap-5 lg:w-[200px]">
-              <p className="text-sm leading-none tracking-[0.02em] text-white/40">{column.title}</p>
-              {column.links.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base leading-none tracking-[0.02em] text-white capitalize transition-colors hover:text-white/70"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
+        <nav
+          aria-label="Footer"
+          className="flex flex-wrap gap-x-10 gap-y-5 lg:gap-x-[60px] lg:pt-1.5"
+        >
+          {footer.links.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base leading-none tracking-[0.02em] text-white capitalize transition-colors hover:text-white/70"
+            >
+              {link.name}
+            </a>
           ))}
         </nav>
       </div>

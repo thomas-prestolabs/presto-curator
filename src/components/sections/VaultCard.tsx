@@ -1,5 +1,5 @@
 import type { VaultData } from "@/lib/vaults";
-import { formatApy, formatUsdCompact } from "@/lib/format";
+import { formatApy, formatUsdCompact, roundingFor } from "@/lib/format";
 import TokenIcon from "../ui/TokenIcon";
 
 function ExposureIcons({ items }: { items: VaultData["exposure"] }) {
@@ -69,8 +69,8 @@ export default function VaultCard({ vault }: { vault: VaultData }) {
       </div>
 
       <dl className="mt-8 flex gap-4">
-        <Stat label="APY" value={formatApy(vault.apy)} />
-        <Stat label="TVL" value={formatUsdCompact(vault.tvlUsd)} />
+        <Stat label="APY" value={formatApy(vault.apy, roundingFor[vault.protocol])} />
+        <Stat label="TVL" value={formatUsdCompact(vault.tvlUsd, roundingFor[vault.protocol])} />
       </dl>
     </a>
   );

@@ -71,9 +71,10 @@ Adding a vault = adding an entry to `src/data/vaults.ts`. Morpho vaults must be 
 How the numbers relate to the linked pages:
 
 - **Same fields.** Verified on 2026-10-12: Morpho page "Net APY 4.54%" ↔ `netApy` 0.045409;
-  Symbiotic page "APY 4.36%" ↔ `rewards.weeklyApr` 0.0436.
-- **Same rounding.** Both apps truncate to two decimals instead of rounding (`0.0441595` → `4.41%`,
-  not `4.42%`). `src/lib/format.ts` does the same, for APY and for USD (`$302.48k`, `$4.03M`).
+  Symbiotic page "APY 4.37%" ↔ `rewards.weeklyApr` 0.043697 (2026-10-13).
+- **Same rounding, per app.** Morpho truncates to two decimals (`0.0441595` → `4.41%`, not
+  `4.42%`); Symbiotic rounds (`0.0436966` → `4.37%`, `999809.26` → `$999.81k`). `src/lib/format.ts`
+  applies the matching rule per protocol (`roundingFor`), for APY and for USD.
 - **Cached, not per view.** The page is an ISR page (`revalidate = 60`): visitors get the cached
   HTML instantly, and the first request after a window expires triggers one background
   regeneration — the only moment the Morpho / Symbiotic APIs are called. Upstream traffic is
@@ -140,10 +141,12 @@ Optional environment variables (see `.env.example`): `MORPHO_API_URL`, `SYMBIOTI
 
 ## Things to confirm before launch
 
-- **News copy** in `content/news/` is placeholder editorial text (the Figma uses lorem ipsum).
-  The facts are taken from Presto's Morpho forum post, but the wording should be reviewed by comms.
-- **Footer policy links** point at `https://www.prestolabs.io/{privacy,complaints,…}` — update
-  `site.mainSiteUrl` or the individual hrefs to the real pages.
+- **News items** in `content/news/` are the three latest vault posts from @Presto_Labs on X
+  (2026-07-30 Morpho curator launch, 2026-09-21 KR200 structured product, 2026-10-07 Symbiotic Liquid Lane). Excerpts
+  are condensed from the post text and each card links to the post; thumbnails are the posts'
+  video poster frames. Check whether the company should be named "Presto" or "Presto Digital".
+- **Footer links** are a flat list of four (X, LinkedIn, Youtube, Media Kit) in `footer.links`;
+  the policy pages are intentionally not linked from this site.
 - **Stats** ("$2B+", "70M+", …) are copied from the design; confirm the numbers.
 - The small disclaimer under the vault cards ("Figures are informational…") is not in the design;
   remove it in `src/components/sections/Vaults.tsx` if legal does not want it.

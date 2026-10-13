@@ -96,33 +96,14 @@ export const contactSection = {
 };
 
 export const footer = {
-  columns: [
+  /** Flat list, rendered as one row (order matters). */
+  links: [
+    { name: "X", href: "https://x.com/Presto_Labs" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/company/presto-official" },
+    { name: "Youtube", href: "https://www.youtube.com/@presto-group" },
     {
-      title: "Policy",
-      links: [
-        { name: "Data Privacy", href: `${site.mainSiteUrl}/privacy` },
-        { name: "Complaints", href: `${site.mainSiteUrl}/complaints` },
-        { name: "Whistleblower", href: `${site.mainSiteUrl}/whistleblower` },
-        { name: "Conflict of Interest", href: `${site.mainSiteUrl}/conflict-of-interest` },
-      ],
-    },
-    {
-      title: "Etc",
-      links: [
-        { name: "Disclosure", href: `${site.mainSiteUrl}/disclosure` },
-        {
-          name: "Media Kit",
-          href: "https://prestolabs.notion.site/Presto-Digital-Brand-Materials-306143b7087380cc8a3dcb13db84731a",
-        },
-      ],
-    },
-    {
-      title: "Social Media",
-      links: [
-        { name: "X", href: "https://x.com/Presto_Labs" },
-        { name: "LinkedIn", href: "https://www.linkedin.com/company/presto-official" },
-        { name: "Youtube", href: "https://www.youtube.com/@presto-group" },
-      ],
+      name: "Media Kit",
+      href: "https://prestolabs.notion.site/Presto-Digital-Brand-Materials-306143b7087380cc8a3dcb13db84731a",
     },
   ],
   copyright: "Presto Digital",
