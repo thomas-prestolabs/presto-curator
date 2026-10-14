@@ -79,13 +79,6 @@ export const partnersSection = {
       height: 39,
       href: "https://symbiotic.fi",
     },
-    {
-      name: "BitGo",
-      logo: "/images/partners/bitgo.svg",
-      width: 207,
-      height: 70,
-      href: "https://www.bitgo.com",
-    },
   ],
 };
 
