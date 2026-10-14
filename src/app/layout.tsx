@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/data/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const dieGroteskB = localFont({
   src: [
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <style>{`[style*="opacity"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
         {children}
+        <Analytics />
       </body>
     </html>
   );
