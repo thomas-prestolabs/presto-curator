@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Logo from "./ui/Logo";
 import { ArrowEast } from "./ui/Icons";
-import { site } from "@/data/site";
 
 /**
  * Fixed header: logo top-left (20px inset), CONTACT pill top-right (12px inset),
@@ -38,7 +37,7 @@ export default function Header() {
         </a>
 
         <a
-          href={`mailto:${site.contactEmail}`}
+          href="#contact"
           className="group absolute top-3 right-3 inline-flex h-10 items-center gap-1 rounded-full bg-black py-2.5 pr-[18px] pl-5 text-xs font-medium tracking-[0.08em] text-white uppercase transition-colors hover:bg-gray-90"
         >
           Contact
