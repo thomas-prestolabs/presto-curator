@@ -20,10 +20,7 @@ export const hero = {
 
 export const vaultsSection = {
   title: "Vaults",
-  subtitle: [
-    "Presto brings a proven track record spanning over a decade",
-    "to onchain vaults",
-  ],
+  subtitle: "Presto brings a proven track record spanning over a decade to onchain vaults",
 };
 
 export const statsSection = {
