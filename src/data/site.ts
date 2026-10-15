@@ -25,10 +25,8 @@ export const vaultsSection = {
 
 export const statsSection = {
   title: "Managed by Presto",
-  subtitle: [
-    "From OTC desks to onchain lending,",
-    "Presto has been active across every corner of crypto",
-  ],
+  subtitle:
+    "From OTC desks to onchain lending, Presto has been active across every corner of crypto",
   stats: [
     {
       label: "Daily Volume",
